@@ -10,24 +10,24 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<Map<String, dynamic>> users = [
-    {"name": "Alice Johnson", "location": "New York", "isActive": true},
-    {"name": "Brian Smith", "location": "London", "isActive": false},
-    {"name": "Carla Gomez", "location": "Madrid", "isActive": true},
-    {"name": "David Lee", "location": "Toronto", "isActive": true},
-    {"name": "Ella Brown", "location": "Sydney", "isActive": false},
-    {"name": "Frank White", "location": "Berlin", "isActive": true},
-    {"name": "Grace Kim", "location": "Seoul", "isActive": true},
-    {"name": "Henry Adams", "location": "Chicago", "isActive": false},
-    {"name": "Isabella Rossi", "location": "Rome", "isActive": true},
-    {"name": "Jack Wilson", "location": "San Francisco", "isActive": false},
-    {"name": "Karen Davis", "location": "Paris", "isActive": true},
-    {"name": "Leo Martinez", "location": "Mexico City", "isActive": true},
+  final List<User> users = [
+    User(name: "Alice Johnson", location: "New York", isActive: true),
+    User(name: "Brian Smith", location: "London", isActive: false),
+    User(name: "Carla Gomez", location: "Madrid", isActive: true),
+    User(name: "David Lee", location: "Toronto", isActive: true),
+    User(name: "Ella Brown", location: "Sydney", isActive: false),
+    User(name: "Frank White", location: "Berlin", isActive: true),
+    User(name: "Grace Kim", location: "Seoul", isActive: true),
+    User(name: "Henry Adams", location: "Chicago", isActive: false),
+    User(name: "Isabella Rossi", location: "Rome", isActive: true),
+    User(name: "Jack Wilson", location: "San Francisco", isActive: false),
+    User(name: "Karen Davis", location: "Paris", isActive: true),
+    User(name: "Leo Martinez", location: "Mexico City", isActive: true),
   ];
 
   void handleClick(int index) {
     setState(() {
-      users[index]["isActive"] = !users[index]["isActive"];
+      users[index].isActive = !users[index].isActive;
     });
   }
 
@@ -51,9 +51,9 @@ class _HomeScreenState extends State<HomeScreen> {
             return Padding(
               padding: EdgeInsets.only(bottom: 10),
               child: ProfileCard(
-                name: user["name"],
-                location: user["location"],
-                isActive: user["isActive"],
+                name: user.name,
+                location: user.location,
+                isActive: user.isActive,
                 onToggle: () => handleClick(index),
               ),
             );
