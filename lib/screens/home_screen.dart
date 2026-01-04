@@ -33,32 +33,23 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Users",
-          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-        ),
-      ),
+    return Padding(
+      padding: EdgeInsets.all(16.0),
+      child: ListView.builder(
+        itemCount: users.length,
+        itemBuilder: (context, index) {
+          final user = users[index];
 
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: users.length,
-          itemBuilder: (context, index) {
-            final user = users[index];
-
-            return Padding(
-              padding: EdgeInsets.only(bottom: 10),
-              child: ProfileCard(
-                name: user.name,
-                location: user.location,
-                isActive: user.isActive,
-                onToggle: () => handleClick(index),
-              ),
-            );
-          },
-        ),
+          return Padding(
+            padding: EdgeInsets.only(bottom: 10),
+            child: ProfileCard(
+              name: user.name,
+              location: user.location,
+              isActive: user.isActive,
+              onToggle: () => handleClick(index),
+            ),
+          );
+        },
       ),
     );
   }
